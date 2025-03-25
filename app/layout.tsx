@@ -1,3 +1,5 @@
+// "use client"
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -29,15 +31,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <ClerkProvider>
+    <ClerkProvider
+    appearance={{
+      variables: {
+        colorText:'#fff',
+        colorPrimary:'#0E78F9',
+        colorBackground:'#1c1f2e',
+        colorInputBackground:'#252a41',
+        colorInputText:'#fff'
+      }}
+    }
+    >
+      <html lang="en">
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#161925]`}
         >
           {children}
-          
+
         </body>
-      </ClerkProvider>
-    </html>
+      </html>
+    </ClerkProvider>
   );
 }

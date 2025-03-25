@@ -9,9 +9,9 @@ const protectedRoute = createRouteMatcher([
   '/personal-room'
 ]);
 
-export default clerkMiddleware((auth, req) => {
+export default clerkMiddleware(async(auth, req) => {
   if (protectedRoute(req)){ 
-    auth.protect();
+    await auth.protect();
   }
 });
 
